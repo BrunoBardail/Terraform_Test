@@ -4,7 +4,7 @@ terraform {
     organization = "vivadix"
 
     workspaces {
-      name = "learn-terraform-cloud"
+      name = "Terraform_Test"
     }
   }
 */
