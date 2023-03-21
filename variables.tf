@@ -2,7 +2,7 @@
 
 variable "region" {
   description = "AWS region"
-  default     = "us-west-1"
+  default     = "ca-central-1"
 }
 
 variable "instance_type" {
@@ -17,20 +17,25 @@ variable "instance_name" {
 
 variable "region_a" {
   description = "Région A"
+  default ="ca-central-1"
 }
 
 variable "region_b" {
   description = "Région B"
+  default ="eu-west-1"
 }
 
 variable "db_name" {
   description = "Nom de la base de données"
+  default ="mytestdb"
 }
 
 variable "snapshot_id" {
   description = "ID du snapshot à restaurer"
+  default =""
 }
 
 variable "iam_role_name" {
   description = "Nom du rôle IAM"
+  default ="S3DynamoDBFullAccessRole"
 }

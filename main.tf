@@ -36,7 +36,7 @@ resource "aws_db_instance" "postgres" {
   allocated_storage = 10
   skip_final_snapshot = true
   vpc_security_group_ids = [aws_security_group.postgres.id]
-  availability_zone = "${var.region_a}a"
+  availability_zone = "${var.region_a}"
 }
 
 # Création de la fonction Lambda pour restaurer la base de données
@@ -66,9 +66,15 @@ resource "aws_iam_role" "lambda_role" {
 }
 
 # Autorisations pour le rôle IAM
-resource "aws_iam_policy_attachment" "lambda_policy_attachment" {
+# resource "aws_iam_policy_attachment" "lambda_policy_attachment" {
+#  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+#  roles = [aws_iam_role.lambda_role.arn] 
+# }
+
+# Association du rôle IAM et de la politique
+resource "aws_iam_role_policy_attachment" "lambda_policy_attachment" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-  roles = [aws_iam_role.lambda_role.name]
+  role       = aws_iam_role.lambda_role.name
 }
 
 # Déclenchement de la fonction Lambda par une alerte CloudWatch
