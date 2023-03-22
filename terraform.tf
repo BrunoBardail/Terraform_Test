@@ -1,12 +1,12 @@
 terraform {
-
+/*
   cloud {
     organization = "vivadix"
-
     workspaces {
       name = "Terraform_Test"
     }
   }
+*/
 
   required_providers {
     aws = {
